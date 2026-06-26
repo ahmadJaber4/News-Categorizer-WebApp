@@ -1,10 +1,19 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from utils import cleaned_text
 import joblib
 
 # create app
 app = FastAPI()
+
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["POST"],
+    allow_headers=["Content-Type"],
+)
 
 # load model, vectorizer, and label encoder
 classifier = joblib.load('model/classifier.pkl')

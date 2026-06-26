@@ -105,7 +105,7 @@ textarea:focus {
   right: 0px;
 }
 
-.recent-predictions{
+.recent-predictions {
   color: white;
 }
 
@@ -148,4 +148,23 @@ textarea:focus {
 .history-confidence {
   width: 45%;
   text-align: center;
+}
+
+.predicted-category,
+.confidence {
+  color: #87E698;
+}
+
+.confidence-bar {
+  width: 100px;
+  height: 15px;
+  border-radius: 3px;
+  background-color: #E5E5E5;
+}
+
+.percent {
+  height: 15px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #87E698;
 }
