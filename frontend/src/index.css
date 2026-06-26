@@ -21,7 +21,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 35px;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .user-input {
@@ -92,7 +92,7 @@ textarea:focus {
   align-self: flex-start;
   color: white;
   font-size: 1.1em;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .history-container {
@@ -167,4 +167,9 @@ textarea:focus {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   background-color: #87E698;
+}
+
+.error{
+  color: rgb(255, 96, 96);
+  font-size: 0.9em;
 }

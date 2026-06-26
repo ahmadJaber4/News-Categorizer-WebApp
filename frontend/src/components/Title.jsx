@@ -2,7 +2,7 @@
 export default function Title(){
     return (
         <h1 className="title">
-            News Categorizer
+            📰 News Categorizer
         </h1>
     )
 }
