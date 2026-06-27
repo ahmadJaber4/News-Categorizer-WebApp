@@ -1,12 +1,19 @@
 import HistoryContainer from "./components/HistoryContainer"
 import PredictionContainer from "./components/PredictionContainer"
 import Title from "./components/Title"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
 
   // history state
-  const [history, setHistory] = useState([])
+  const [history, setHistory] = useState(() => {
+    const saved = localStorage.getItem('predictionHistory')
+    return saved ? JSON.parse(saved) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem('predictionHistory', JSON.stringify(history))
+  }, [history])
 
   return (
     <>
