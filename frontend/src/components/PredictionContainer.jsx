@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from 'axios'
 
-export default function PredictionContainer() {
+export default function PredictionContainer({ history, setHistory }) {
 
     // headline and result states
     const [headline, setHeadline] = useState(null)
@@ -30,10 +30,12 @@ export default function PredictionContainer() {
                     headline: headline
                 }
             )
-            setResult({
-                predicted_category: response.data['predicted_category'],
-                confidence: response.data['confidence']
-            })
+            const predicted_category = response.data.predicted_category
+            const confidence = response.data.confidence
+
+            setResult({ predicted_category, confidence })
+            setHistory(prevHistory => [{ headline, predicted_category, confidence }, ...prevHistory])
+
         } catch (err) {
             if (err.response?.status === 422) {
                 setError('Input cannot be empty. Please enter a headline.')
@@ -78,7 +80,7 @@ export default function PredictionContainer() {
                     <div className="confidence-bar">
                         <div className="percent" style={{ width: `${result.confidence ? result.confidence * 100 : 0}%` }}></div>
                     </div>
-                    <span className="confidence">{result.confidence ? `${Number((result.confidence*100).toFixed(2))}%` : ''}</span>
+                    <span className="confidence">{result.confidence ? `${Number((result.confidence * 100).toFixed(2))}%` : ''}</span>
                 </div>
             </div>
         </div>

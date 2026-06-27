@@ -1,5 +1,6 @@
+// [{ headline, predicted_category, confidence }]
 
-export default function HistoryContainer() {
+export default function HistoryContainer({ history }) {
     return (
         <div className="history-container">
 
@@ -13,25 +14,16 @@ export default function HistoryContainer() {
                     <span>Confidence</span>
                 </div>
 
-                <div className="row">
-                    <span className="history-headline">"Messi wins world cup after phenominal..."</span>
-                    <span className="history-confidence">79%</span>
-                </div>
-
-                <div className="row">
-                    <span className="history-headline">"Messi wins world cup after phenominal..."</span>
-                    <span className="history-confidence">79%</span>
-                </div>
-
-                <div className="row">
-                    <span className="history-headline">"Messi wins world cup after phenominal..."</span>
-                    <span className="history-confidence">79%</span>
-                </div>
-
-                <div className="row">
-                    <span className="history-headline">"Messi wins world cup after phenominal..."</span>
-                    <span className="history-confidence">79%</span>
-                </div>
+                {
+                    history.map((item, index) => {
+                        return (
+                            <div className="row" key={index}>
+                                <span className="history-headline">{`${item.headline.slice(0, 50)}...`} <b>{`(${item.predicted_category})`}</b></span>
+                                <span className="history-confidence">{Number((item.confidence * 100).toFixed(2))}%</span>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

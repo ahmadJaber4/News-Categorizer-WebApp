@@ -116,9 +116,11 @@ textarea:focus {
   align-items: center;
   background-color: #5757578b;
   width: 300px;
-  color: white;
+  height: 400px;
+  color: rgba(255, 255, 255, 0.764);
   padding: 10px;
   border-top-left-radius: 10px;
+  overflow-y: auto;
 }
 
 .col-names {
