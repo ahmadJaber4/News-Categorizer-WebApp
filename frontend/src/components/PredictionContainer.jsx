@@ -25,7 +25,7 @@ export default function PredictionContainer({ history, setHistory }) {
             setLoading(true)
             setError(null)
 
-            const response = await axios.post('http://127.0.0.1:8000/predict',
+            const response = await axios.post('https://news-categorizer-backend.onrender.com/predict',
                 {
                     headline: headline
                 }
